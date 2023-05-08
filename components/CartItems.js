@@ -155,7 +155,7 @@ const CartItems = () => {
                         <tr className="border border-slate-400 text-sm lg:text-2xl font-normal lg:font-semibold ">
                           <td
                             className="
-                         text-sm lg:text-xl xl:text-2xl p-1 lg:p-4 w-4/12"
+                         text-sm lg:text-xl xl:text-2xl p-1 lg:p-4 w-3/12"
                           >
                             {item.name}
                           </td>
@@ -172,7 +172,7 @@ const CartItems = () => {
                               <HiMinusCircle />
                             </button>
                           </td>
-                          <td className="text-sm lg:text-xl xl:text-2xl p-1 lg:p-4 text-center w-1/12">
+                          <td className="text-sm lg:text-xl xl:text-2xl p-1 lg:p-4 text-center w-2/12">
                             {item.quantity}
                           </td>
                           <td className="p-1 lg:p-4 text-sm lg:text-xl xl:text-2xl text-center w-1/12">
