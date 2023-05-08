@@ -172,10 +172,10 @@ const CartItems = () => {
                               <HiMinusCircle />
                             </button>
                           </td>
-                          <td className="text-sm lg:text-xl xl:text-2xl p-1 lg:p-4 text-center lg:w-1/12">
+                          <td className="text-sm lg:text-xl xl:text-2xl p-1 lg:p-4 text-center w-1/12">
                             {item.quantity}
                           </td>
-                          <td className="p-1 lg:p-4 text-sm lg:text-xl xl:text-2xl text-center lg:w-1/12">
+                          <td className="p-1 lg:p-4 text-sm lg:text-xl xl:text-2xl text-center w-1/12">
                             <button
                               className="active:text-slate-400"
                               onClick={() => {
@@ -185,7 +185,7 @@ const CartItems = () => {
                               <HiPlusCircle className="" />
                             </button>
                           </td>
-                          <td className="p-1 lg:p-4 text-sm lg:text-xl xl:text-2xl lg:w-3/12 text-right">
+                          <td className="p-1 lg:p-4 text-sm lg:text-xl xl:text-2xl w-3/12 text-right">
                             ${(item.price * item.quantity).toFixed(2)}
                           </td>
                         </tr>
