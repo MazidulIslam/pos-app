@@ -5,16 +5,17 @@ import { createContext, useReducer } from 'react';
 export const Store = createContext();
 
 export const CART_ADD_ITEM = 'CART_ADD_ITEM';
+export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM';
+export const CART_RESET = 'CART_RESET';
+export const CART_CLEAR_ITEMS = 'CART_CLEAR_ITEMS';
 
 const initialState = {
   cart: Cookies.get('cart')
     ? JSON.parse(Cookies.get('cart'))
-    : { cartItems: [], shippingAddress: {} },
-  // cart: { cartItems: [] },
+    : { cartItems: [] },
 };
 
 function reducer(state, action) {
-  debugger;
   switch (action.type) {
     case CART_ADD_ITEM: {
       const newItem = action.payload;
@@ -29,6 +30,32 @@ function reducer(state, action) {
 
       Cookies.set('cart', JSON.stringify({ ...state.cart, cartItems }));
       return { ...state, cart: { ...state.cart, cartItems } };
+    }
+
+    case CART_REMOVE_ITEM: {
+      const cartItems = state.cart.cartItems.filter(
+        (item) => item.slug !== action.payload.slug
+      );
+      Cookies.set('cart', JSON.stringify({ ...state.cart, cartItems }));
+      return { ...state, cart: { ...state.cart, cartItems } };
+    }
+    case CART_RESET: {
+      return {
+        ...state,
+        cart: {
+          // cartItems: {},
+          cartItems: [],
+        },
+      };
+    }
+    case CART_CLEAR_ITEMS: {
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          cartItems: [],
+        },
+      };
     }
 
     default:

@@ -1,5 +1,6 @@
 'use client';
 import React, { useContext } from 'react';
+
 import Image from 'next/image';
 import { HiDotsVertical } from 'react-icons/hi';
 import CategoryButton from '/components/CategoryButton';
@@ -12,6 +13,7 @@ const myProducts = [
     slug: 'free-shirt-1',
     category: 'Shirts',
     image: '/images/shirt1.jpg',
+    // image: '/public/images/shirt1.jpg',
     price: 50.2,
     brand: 'Nike',
     rating: 4.5,
@@ -83,6 +85,30 @@ const myProducts = [
     countInStock: 20,
     description: 'A Polular pants',
   },
+  {
+    name: 'Classic Pants2',
+    slug: 'classic-pants2',
+    category: 'Pants',
+    image: '/images/pants3.jpg',
+    price: 50.0,
+    brand: 'Casely',
+    rating: 4.5,
+    numReviews: 8,
+    countInStock: 20,
+    description: 'A Polular pants',
+  },
+  {
+    name: 'Classic Pants3',
+    slug: 'classic-pants3',
+    category: 'Pants',
+    image: '/images/pants3.jpg',
+    price: 50.0,
+    brand: 'Casely',
+    rating: 4.5,
+    numReviews: 8,
+    countInStock: 20,
+    description: 'A Polular pants',
+  },
 ];
 
 const Products = () => {
@@ -96,10 +122,11 @@ const Products = () => {
     const newProduct = product;
 
     if (newProduct.countInStock < quantity) {
-      toast.error('Sorry. Product is out of stock');
+      alert('Sorry. Product is out of stock');
       return;
     }
     dispatch({ type: CART_ADD_ITEM, payload: { ...product, quantity } });
+
     toast.success('Product added to the cart');
   };
 
@@ -130,7 +157,7 @@ const Products = () => {
               type="text"
               id="simple-search"
               className="bg-white  text-gray-900  text-xl focus:ring-blue-500 focus:border-blue-500 block w-full pl-20 p-3  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-              placeholder="Search Products"
+              placeholder="Search Products..."
               required
             />
             <button
@@ -161,7 +188,7 @@ const Products = () => {
             <HiDotsVertical />
           </button>
         </div>
-        <div id="products">
+        <div id=" products" className="h-screen ">
           <div className="grid grid-cols-4 gap-4">
             {myProducts.map((product) => (
               <Card
