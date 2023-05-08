@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@layer components {
+  /* group utilites  */
+  .categoryBtn {
+    @apply bg-transparent  text-slate-600 font-semibold  py-1 px-2 border border-slate-600 active:border-blue-700 active:bg-transparent active:text-blue-700 rounded;
+  }
+  .menuBtn {
+    @apply flex text-center items-center bg-transparent bg-indigo-100 hover:bg-indigo-200 text-indigo-500 font-medium hover:text-indigo-600 py-1 sm:p-1 lg:p-2 hover:border-transparent text-xl rounded;
+  }
+  .actionBtn {
+    @apply flex text-center items-center bg-transparent  font-medium  py-1 sm:p-2 lg:p-4 sm:px-2 lg:px-6  hover:border-transparent text-2xl rounded;
+  }
+  .actionBtn-red {
+    @apply bg-red-100 hover:bg-red-200 text-red-500  hover:text-red-500;
+  }
+  .actionBtn-indigo {
+    @apply bg-indigo-100 hover:bg-indigo-200 text-indigo-500  hover:text-indigo-500;
+  }
+  .actionBtn-blue {
+    @apply bg-blue-100 hover:bg-blue-200 text-blue-500  hover:text-blue-500;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
